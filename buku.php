@@ -49,7 +49,7 @@ $no = 1;
     <?php endwhile; ?>
     <?php if ($hasil->num_rows == 0) : ?>
       <tr>
-        <td colspan="9" class="text-center">Belum ada data buku.</td>
+        <td colspan="9" class="text-center">Belum ada data buku</td>
       </tr>
     <?php endif; ?>
   </tbody>
