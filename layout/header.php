@@ -32,6 +32,10 @@ $menu_aktif = $menu_aktif ?? '';
                         <a class="nav-link <?= $menu_aktif == 'anggota' ? 'active' : '' ?>"
                             href="anggota.php">Anggota</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= $menu_aktif == 'penerbit' ? 'active' : '' ?>"
+                            href="penerbit.php">Penerbit</a>
+                    </li>
                 </ul>
             </div>
         </div>
