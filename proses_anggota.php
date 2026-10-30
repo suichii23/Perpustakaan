@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
         redirect(
             'form_anggota.php',
             'warning',
-            'NIM tersebut sudah terdaftar. Gunakan NIM lain.'
+            'NIM tersebut sudah Ada. Gunakan NIM lain.'
         );
     }
     $cek->close();
