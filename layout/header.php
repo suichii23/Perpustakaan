@@ -15,7 +15,7 @@ $menu_aktif = $menu_aktif ?? '';
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-success">
+    <nav class="navbar navbar-expand-lg bg-success navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="buku.php">Perpustakaan</a>
             <button class="navbar-toggler" type="button"

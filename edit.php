@@ -14,6 +14,7 @@ $judul_halaman = 'Edit Buku';
 $menu_aktif = 'buku';
 require 'layout/header.php';
 ?>
+
 <h1 class="mb-3">Edit Data Buku</h1>
 <form action="proses.php" method="post" enctype="multipart/form-data">
   <input type="hidden" name="id_buku" value="<?= $row['id_buku'] ?>">
@@ -24,6 +25,7 @@ require 'layout/header.php';
         value="<?= htmlspecialchars($row['kode_buku']) ?>" readonly>
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
     <div class="col-sm-4">
@@ -31,6 +33,7 @@ require 'layout/header.php';
         value="<?= htmlspecialchars($row['judul']) ?>" required>
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="pengarang" class="col-sm-2 col-form-label">Pengarang</label>
     <div class="col-sm-4">
@@ -38,6 +41,7 @@ require 'layout/header.php';
         value="<?= htmlspecialchars($row['pengarang']) ?>">
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="penerbit" class="col-sm-2 col-form-label">Penerbit</label>
     <div class="col-sm-4">
@@ -45,6 +49,7 @@ require 'layout/header.php';
         value="<?= htmlspecialchars($row['penerbit']) ?>">
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="tahun_terbit" class="col-sm-2 col-form-label">Tahun Terbit</label>
     <div class="col-sm-4">
@@ -52,6 +57,7 @@ require 'layout/header.php';
         name="tahun_terbit" value="<?= $row['tahun_terbit'] ?>">
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="stok" class="col-sm-2 col-form-label">Stok</label>
     <div class="col-sm-4">
@@ -59,6 +65,7 @@ require 'layout/header.php';
         value="<?= $row['stok'] ?>">
     </div>
   </div>
+
   <div class="row mb-3">
     <label for="sampul" class="col-sm-2 col-form-label">Sampul</label>
     <div class="col-sm-4">
@@ -71,6 +78,7 @@ require 'layout/header.php';
       <small class="text-muted">Kosongkan jika tidak ingin mengganti sampul.</small>
     </div>
   </div>
+  
   <input type="submit" value="Simpan Perubahan" name="update" class="btn btn-primary">
   <a href="buku.php" class="btn btn-secondary">Kembali</a>
 </form>
