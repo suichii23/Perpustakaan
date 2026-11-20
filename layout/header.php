@@ -44,7 +44,7 @@ $menu_aktif = $menu_aktif ?? '';
                         Halo, <b><?= htmlspecialchars($_SESSION['pengguna']['nama']) ?></b>
                         (<?= htmlspecialchars($_SESSION['pengguna']['level']) ?>)
                     </span>
-                    <a href="logout.php" class="btn btn-dark btn-sm"
+                    <a href="logout.php" class="btn btn-danger btn-sm"
                         onclick="return confirm('Yakin ingin logout?')">Logout</a>
                 </div>
 
