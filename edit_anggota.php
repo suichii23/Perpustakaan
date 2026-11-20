@@ -1,6 +1,12 @@
 
 <?php
 require 'koneksi.php';
+require 'auth.php'; // BARU: wajib login
+
+// menolak permintaan
+if ($_SESSION['pengguna']['level'] !== 'admin') {
+    redirect('anggota.php', 'danger', 'Anda tidak memiliki akses untuk mengedit data.');
+}
 
 // Ambil data anggota berdasarkan ID
 $id = (int) ($_GET['id'] ?? 0);

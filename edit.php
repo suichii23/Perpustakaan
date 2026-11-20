@@ -1,5 +1,12 @@
 <?php
 require 'koneksi.php';
+require 'auth.php'; // BARU: wajib login
+
+// menolak permintaan (di edit.php)
+if ($_SESSION['pengguna']['level'] !== 'admin') {
+  redirect('buku.php', 'danger', 'Anda tidak memiliki akses untuk mengedit data.');
+}
+
 // Ambil data buku berdasarkan id (prepared statement)
 $id = $_GET['id'] ?? 0;
 $stmt = $koneksi->prepare("SELECT * FROM buku WHERE id_buku = ?");

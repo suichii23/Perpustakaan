@@ -1,5 +1,12 @@
 <?php
 require 'koneksi.php';
+require 'auth.php'; // BARU: wajib login
+
+// menolak permintaan
+if ($_SESSION['pengguna']['level'] !== 'admin') {
+redirect('buku.php', 'danger', 'Anda tidak memiliki akses untuk menambah data.');
+}
+
 $judul_halaman = 'Input Buku';
 $menu_aktif = 'buku';
 require 'layout/header.php';

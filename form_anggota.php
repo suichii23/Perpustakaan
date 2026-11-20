@@ -1,6 +1,12 @@
 
 <?php
 require 'koneksi.php';
+require 'auth.php'; // BARU: wajib login
+
+// menolak permintaan
+if ($_SESSION['pengguna']['level'] !== 'admin') {
+    redirect('anggota.php', 'danger', 'Anda tidak memiliki akses untuk menambah data.');
+}
 
 $judul_halaman = 'Input Anggota';
 $menu_aktif = 'anggota';

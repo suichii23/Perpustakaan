@@ -1,13 +1,18 @@
 <?php
 require 'koneksi.php';
 $judul_halaman = 'Data Buku';
+require 'auth.php'; // BARU: wajib login
 $menu_aktif = 'buku';
 require 'layout/header.php';
 $hasil = $koneksi->query("SELECT * FROM buku ORDER BY id_buku DESC");
 $no = 1;
 ?>
 <h1 class="mb-3">Data Buku</h1>
-<a class="btn btn-success mb-3" href="form.php">+ Input Buku</a>
+
+      <?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
+          <a class="btn btn-success mb-3" href="form.php">+ Input Buku</a>
+      <?php endif; ?>
+
 <table class="table table-bordered table-striped align-middle">
   <thead class="table-light">
     <tr>
@@ -19,7 +24,11 @@ $no = 1;
       <th>Tahun</th>
       <th>Stok</th>
       <th>Sampul</th>
+
+      <?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
       <th>Aksi</th>
+      <?php endif; ?>
+      
     </tr>
   </thead>
   <tbody>
@@ -38,14 +47,22 @@ $no = 1;
               width="80" alt="Sampul">
           <?php endif; ?>
         </td>
+
+        <?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
         <td>
-          <a href="edit.php?id=<?= $row['id_buku'] ?>"
-            class="btn btn-warning btn-sm">Edit</a>
-          <a href="hapus.php?id=<?= $row['id_buku'] ?>"
-            class="btn btn-danger btn-sm"
-            onclick="return confirm('Yakin menghapus data ini?')">Hapus</a>
+        <a href="edit.php?id=<?= $row['id_buku'] ?>"
+           class="btn btn-warning btn-sm"
+           onclick="return confirm('Yakin mengedit data ini?')">Edit</a>
+  
+        <a href="hapus.php?id=<?= $row['id_buku'] ?>"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('Yakin menghapus data ini?')">Hapus</a>
+
         </td>
+        <?php endif; ?>
       </tr>
+
+
     <?php endwhile; ?>
     <?php if ($hasil->num_rows == 0) : ?>
       <tr>

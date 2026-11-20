@@ -13,9 +13,11 @@ $no = 1;
 
 <h1 class="mb-3">Data Anggota</h1>
 
+<?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
 <a class="btn btn-success mb-3" href="form_anggota.php">
     + Input Anggota
 </a>
+<?php endif; ?>
 
 <table class="table table-bordered table-striped align-middle">
     <thead class="table-light">
@@ -26,7 +28,11 @@ $no = 1;
             <th>Email</th>
             <th>No. HP</th>
             <th>Dibuat Pada</th>
+
+            <?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
             <th>Aksi</th>
+            <?php endif; ?>
+
         </tr>
     </thead>
 
@@ -39,6 +45,8 @@ $no = 1;
             <td><?= htmlspecialchars($row['email'] ?? '') ?></td>
             <td><?= htmlspecialchars($row['no_hp'] ?? '') ?></td>
             <td><?= htmlspecialchars($row['dibuat_pada'] ?? '') ?></td>
+
+            <?php if (($_SESSION['pengguna']['level'] ?? '') === 'admin') : ?>
             <td>
                 <a href="edit_anggota.php?id=<?= $row['id_anggota'] ?>"
                    class="btn btn-warning btn-sm">Edit</a>
@@ -49,6 +57,7 @@ $no = 1;
                     Hapus
                 </a>
             </td>
+            <?php endif; ?>
         </tr>
         <?php endwhile; ?>
 
@@ -63,3 +72,4 @@ $no = 1;
 </table>
 
 <?php require 'layout/footer.php'; ?>
+
